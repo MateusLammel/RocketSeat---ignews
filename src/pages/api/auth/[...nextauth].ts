@@ -6,7 +6,6 @@ import { Params } from "next/dist/server/router";
 import { fauna } from "../../../services/fauna";
 
 export default NextAuth({
-  // Configure one or more authentication providers
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
@@ -37,17 +36,16 @@ export default NextAuth({
             ])
           )
         );
+        return {
+          ...session,
+          activeSubscription: userActiveSubscription,
+        };
       } catch (err) {
         return {
           ...session,
           activeSubscription: null,
         };
       }
-
-      return {
-        ...session,
-        activeSubscription: userActiveSubscription,
-      };
     },
 
     async signIn({ user, account, profile }) {
