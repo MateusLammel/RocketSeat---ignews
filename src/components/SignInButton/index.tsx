@@ -17,7 +17,7 @@ const SignInButton = () => {
       }}
     >
       <FaGithub color="#84D361" />
-      {session.data.user?.name}
+      {session.data?.user?.name}
       <FiX color="#737388" className={styles.closeIcon} />
     </button>
   ) : (

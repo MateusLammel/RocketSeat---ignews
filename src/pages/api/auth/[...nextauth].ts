@@ -14,8 +14,7 @@ export default NextAuth({
   ],
 
   callbacks: {
-    async session(session: any) {
-      session.user.email;
+    async session({ session }) {
       try {
         const userActiveSubscription = await fauna.query(
           query.Get(
@@ -27,7 +26,7 @@ export default NextAuth({
                   query.Get(
                     query.Match(
                       query.Index("user_by_email"),
-                      query.Casefold(session.user.email)
+                      query.Casefold(session.user!.email!)
                     )
                   )
                 )
