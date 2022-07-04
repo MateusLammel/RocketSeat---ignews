@@ -10,17 +10,18 @@
 
   a {
     display: block;
+
     & + a {
       margin-top: 2rem;
       padding-top: 2rem;
-      border-top: 2px solid white;
+      border-top: 1px solid var(--grey-300);
     }
 
     time {
       font-size: 1rem;
       display: flex;
       align-items: center;
-      color: var(--gray-300);
+      color: var(--grey-300);
     }
 
     strong {
@@ -32,7 +33,7 @@
     }
 
     p {
-      color: var(--gray-300);
+      color: var(--grey-300);
       margin-top: 0.5rem;
       line-height: 1.625rem;
     }
